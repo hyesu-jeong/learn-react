@@ -18,6 +18,8 @@ const listItems = Array.from(list.querySelectorAll("li"));
 // TODO: listItems 집합 순환 드래그 가능하게 처리
 listItems.forEach((item) => {
   item.setAttribute("draggable", true);
+  // item.setAttribute('tabindex', 0);
+  // item.style.cursor = 'move';
 
   // TODO: 각 리스트 아이템에 드래그 이벤트 핸들링
   item.addEventListener("dragstart", (e) => {
@@ -29,12 +31,41 @@ listItems.forEach((item) => {
     // console.log(e.type, e.currentTarget);
     e.currentTarget.classList.remove(DRAGGING_CLASSNAME);
   });
+
+  const handleButton = item.querySelector('[data-role="handle"]');
+
+  if (handleButton) {
+    handleButton.addEventListener("keyup", (e) => {
+      switch (e.key) {
+        case "ArrowUp":
+          // case 'ArrowLeft':
+          const prevItem = item.previousElementSibling;
+          if (prevItem) {
+            prevItem.before(item);
+            // 핸들에게 초점 설정(유지)
+            e.currentTarget.focus();
+          }
+
+          break;
+
+        case "ArrowDown":
+          // case 'ArrowRight':
+          const nextItem = item.nextElementSibling;
+          if (nextItem) {
+            nextItem.after(item);
+            // 핸들에게 초점 설정(유지)
+            e.currentTarget.focus();
+          }
+
+          break;
+      }
+    });
+  }
 });
 
 // TODO: list 드래그 이벤트 핸들링
 list.addEventListener("dragover", (e) => {
   // 브라우저 기본 작동 중지
-  // 동작? 작동? 용어적 의미 생각
   e.preventDefault();
 
   // TODO: 현재 드래깅 중인 아이템 찾기
@@ -58,5 +89,9 @@ list.addEventListener("dragover", (e) => {
     return e.clientY <= item.offsetTop + item.offsetHeight * 0.5;
   });
 
-  list.insertBefore(draggedItem, replaceItem);
+  if (replaceItem) {
+    list.insertBefore(draggedItem, replaceItem);
+  } else {
+    list.appendChild(draggedItem);
+  }
 });
