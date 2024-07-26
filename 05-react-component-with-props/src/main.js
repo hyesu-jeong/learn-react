@@ -1,10 +1,10 @@
-import React from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom";
+import React from 'https://esm.sh/react';
+import { createRoot } from 'https://esm.sh/react-dom';
 // import { ArchitectureListPage } from './pages/ArchitectureListPage.js';
-import AvatarListPage from "./pages/AvatarListPage.js";
+import AvatarListPage from './pages/AvatarListPage.js';
 
 // 리액트 앱을 렌더링 할 DOM 요소 참조
-const container = document.getElementById("react-app");
+const container = document.getElementById('react-app');
 
 // DOM 요소가 존재한다면?
 if (container) {

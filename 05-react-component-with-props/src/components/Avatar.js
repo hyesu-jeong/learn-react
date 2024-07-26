@@ -1,4 +1,4 @@
-import { createElement as h } from "https://esm.sh/react";
+import { createElement as h } from 'https://esm.sh/react';
 
 /* 
   <firgure aria-label="이름 (상태)">
@@ -17,53 +17,53 @@ import { createElement as h } from "https://esm.sh/react";
     size?: 숫자 값
   }
 */
-function Avatar({ name, photo, status = "offline", size = 64 }) {
+function Avatar({ name, photo, status = 'offline', size = 64 }) {
   // 지역 변수
-  let iconPath = "";
-  let statusMessage = "";
+  let iconPath = '';
+  let statusMessage = '';
 
   // switch 문 사용
   switch (status) {
     default:
-    case "offline":
-      iconPath = "/icons/status-offline.svg";
-      statusMessage = "오프라인";
+    case 'offline':
+      iconPath = '/icons/status-offline.svg';
+      statusMessage = '오프라인';
       break;
-    case "online":
-      iconPath = "/icons/status-online.svg";
-      statusMessage = "온라인";
+    case 'online':
+      iconPath = '/icons/status-online.svg';
+      statusMessage = '온라인';
       break;
-    case "dont-disturb":
-      iconPath = "/icons/status-dont-disturb.svg";
-      statusMessage = "방해금지";
+    case 'dont-disturb':
+      iconPath = '/icons/status-dont-disturb.svg';
+      statusMessage = '방해금지';
       break;
-    case "away":
-      iconPath = "/icons/status-away.svg";
-      statusMessage = "자리비움";
+    case 'away':
+      iconPath = '/icons/status-away.svg';
+      statusMessage = '자리비움';
       break;
   }
 
   const label = `${name} (${statusMessage})`;
 
   return h(
-    "figure",
+    'figure',
     {
-      className: "Avatar",
-      "aria-label": label,
+      className: 'Avatar',
+      'aria-label': label,
       title: label,
     },
-    h("img", {
+    h('img', {
       src: `/faces/${photo}`,
       alt: name,
       width: size,
       height: size,
     }),
     h(
-      "figcaption",
+      'figcaption',
       null,
-      h("img", {
+      h('img', {
         src: iconPath,
-        alt: "",
+        alt: '',
       })
     )
   );
