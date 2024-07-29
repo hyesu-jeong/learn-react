@@ -17,10 +17,10 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    // "**/node_modules": false,
     "**/*.js.map": {
       "when": "$(basename)"
-    }
+    },
+    "**/node_modules": true
   },
 
   // 파일 형식
