@@ -20,7 +20,7 @@
     "**/*.js.map": {
       "when": "$(basename)"
     },
-    "**/node_modules": true
+    "**/node_modules": false
   },
 
   // 파일 형식
