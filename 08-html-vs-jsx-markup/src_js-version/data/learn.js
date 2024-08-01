@@ -1,10 +1,6 @@
-// 문자 타입 관리
-export const imageType = 'kakao talk'; // 'react' | 'vite' | 'next.js' | 'kakao talk'
+export const imageType = 'react'; // 'react' | 'vite' | 'next.js' | 'kakao talk'
 
-// 이미지 타입 배열 관리
-export const IMAGE_TYPES = ['react', 'vite', 'next.js', 'kakao talk'];
-
-export const isShowReactImage = false;
+export const isShowReactImage = !true; // FALSE
 
 export const statusMessages = [
   '⌛️ 대기',
