@@ -7,7 +7,7 @@ EventHandlerProp.propTypes = {
 // 하위 컴포넌트
 function EventHandlerProp({ onPrintMessage }) {
   const handleEnter = () => {
-    console.log('enter');
+    // console.log('enter');
     onPrintMessage?.(' ⭐️');
   };
 
