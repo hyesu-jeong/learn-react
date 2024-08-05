@@ -1,6 +1,6 @@
 // import ExpandableText from '@/components/ExpandableText';
-import AvatarListPage from './pages/AvatarListPage';
-// import Counter from './components/Counter';
+// import AvatarListPage from '@/pages/AvatarListPage';
+import Counter from '@/components/Counter';
 
 /* -------------- ExpandableText -------------- */
 // function Playground() {
@@ -33,21 +33,21 @@ import AvatarListPage from './pages/AvatarListPage';
 // }
 
 /* ------------------ Avatar ------------------ */
-function Playground() {
-  return (
-    <>
-      <AvatarListPage />
-    </>
-  );
-}
-
-/* ------------------ Counter ----------------- */
 // function Playground() {
 //   return (
 //     <>
-//       <Counter />
+//       <AvatarListPage />
 //     </>
 //   );
 // }
+
+/* ------------------ Counter ----------------- */
+function Playground() {
+  return (
+    <>
+      <Counter count={10} step={4} min={20} max={40} />
+    </>
+  );
+}
 
 export default Playground;
