@@ -1,6 +1,7 @@
-// import ExpandableText from '@/components/ExpandableText';
+// import ExpandableText from '@/components/ExpandableText/ExpandableText';
 // import AvatarListPage from '@/pages/AvatarListPage';
-import Counter from '@/components/Counter';
+import Counter from '@/components/Counter/Counter';
+import CounterClass from '@/components/Counter/Counter.class';
 
 /* -------------- ExpandableText -------------- */
 // function Playground() {
@@ -45,7 +46,11 @@ import Counter from '@/components/Counter';
 function Playground() {
   return (
     <>
-      <Counter count={10} step={4} min={20} max={40} />
+      <h1>Counter Function</h1>
+      <Counter count={3} min={2} max={6} />
+      <Counter count={10} step={4} min={5} max={20} />
+      <h1>Counter Class</h1>
+      <CounterClass min={9} count={10} step={10} />
     </>
   );
 }
