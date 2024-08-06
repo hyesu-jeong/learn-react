@@ -1,7 +1,8 @@
 // import ExpandableText from '@/components/ExpandableText/ExpandableText';
 // import AvatarListPage from '@/pages/AvatarListPage';
-import Counter from '@/components/Counter/Counter';
-import CounterClass from '@/components/Counter/Counter.class';
+// import Counter from '@/components/Counter/Counter';
+// import CounterClass from '@/components/Counter/Counter.class';
+import { UsersPage } from './pages/users/UsersPage';
 
 /* -------------- ExpandableText -------------- */
 // function Playground() {
@@ -43,14 +44,24 @@ import CounterClass from '@/components/Counter/Counter.class';
 // }
 
 /* ------------------ Counter ----------------- */
+// function Playground() {
+//   return (
+//     <>
+//       <h1>Counter Function</h1>
+//       <Counter min={-50} count={3} max={50} />
+//       <Counter count={10} step={4} min={5} max={20} />
+//       <h1>Counter Class</h1>
+//       <CounterClass min={9} count={10} step={10} />
+//     </>
+//   );
+// }
+
+/* ------------------ Users ----------------- */
 function Playground() {
   return (
     <>
-      <h1>Counter Function</h1>
-      <Counter min={-50} count={3} max={50} />
-      <Counter count={10} step={4} min={5} max={20} />
-      <h1>Counter Class</h1>
-      <CounterClass min={9} count={10} step={10} />
+      <h1>Users</h1>
+      <UsersPage />
     </>
   );
 }
