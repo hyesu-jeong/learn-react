@@ -47,7 +47,7 @@ function Playground() {
   return (
     <>
       <h1>Counter Function</h1>
-      <Counter count={3} min={2} max={6} />
+      <Counter min={-50} count={3} max={50} />
       <Counter count={10} step={4} min={5} max={20} />
       <h1>Counter Class</h1>
       <CounterClass min={9} count={10} step={10} />
