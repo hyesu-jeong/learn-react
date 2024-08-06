@@ -2,7 +2,7 @@
 // import AvatarListPage from '@/pages/AvatarListPage';
 // import Counter from '@/components/Counter/Counter';
 // import CounterClass from '@/components/Counter/Counter.class';
-import { UsersPage } from './pages/users/UsersPage';
+import UsersPage from '@/pages/users/UsersPage';
 
 /* -------------- ExpandableText -------------- */
 // function Playground() {
