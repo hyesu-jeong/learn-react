@@ -1,12 +1,12 @@
 body {
-  margin: 0;
+  margin: 100px 0;
   min-block-size: 100vh;
   background-color: var(--background);
   color: var(--forground);
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .architectures {
@@ -34,7 +34,7 @@ body {
     border-radius: var(--rounded-lg, 8px);
     background: var(--black, #000);
 
-    >img {
+    > img {
       --size: 64px;
       inline-size: var(--size);
       block-size: var(--size);
@@ -67,5 +67,4 @@ body {
       inline-size: var(--size);
     }
   }
-
 }
