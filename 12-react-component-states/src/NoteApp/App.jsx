@@ -49,10 +49,19 @@ function NoteApp() {
   };
 
   // 노트 수정 기능
-  // const handleEditNote = () => {}
+  const handleEditNote = (willEditNote) => {
+    const nextList = list.map((item) =>
+      item.id === willEditNote.id ? willEditNote : item
+    );
+
+    setList(nextList);
+  };
 
   // 노트 삭제 기능
-  // const handleDeleteNote = () => {}
+  const handleDeleteNote = (willDeleteNoteId) => {
+    const nextList = list.filter((item) => item.id !== willDeleteNoteId);
+    setList(nextList);
+  };
 
   // [파생된 상태]
   const newNoteId = list.length + 1;
@@ -71,9 +80,21 @@ function NoteApp() {
         />
       );
     case ROUTES.detail:
-      return <NoteDetailPage noteId={routeInfo.noteId} />;
+      return (
+        <NoteDetailPage
+          noteId={routeInfo.noteId}
+          onChangeRoute={handleChangeRoute}
+        />
+      );
     case ROUTES.edit:
-      return <NoteEditPage noteId={routeInfo.noteId} />;
+      return (
+        <NoteEditPage
+          noteId={routeInfo.noteId}
+          onChangeRoute={handleChangeRoute}
+          onEdit={handleEditNote}
+          onDelete={handleDeleteNote}
+        />
+      );
   }
 }
 

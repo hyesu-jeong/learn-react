@@ -8,12 +8,15 @@ export function convertHTMLToText(htmlString) {
 }
 
 export function convertTextToHTMLString(text, tagName = 'p') {
-  return /\s+/g
-    .exec(text)
-    .input.split('\n')
+  if (typeof text !== 'string') {
+    throw new Error('잘못된 입력: 텍스트는 문자열이어야 합니다.');
+  }
+
+  return text
+    .split('\n')
     .filter(Boolean)
     .reduce(
-      (htmlString, text) => htmlString + `<${tagName}>${text}</${tagName}>`,
+      (htmlString, line) => htmlString + `<${tagName}>${line}</${tagName}>`,
       ''
     );
 }
