@@ -5,7 +5,7 @@ import MotionOneTimeline from './motion-one-timeline';
 import MotionOneInView from './motion-one-in-view';
 import MotionOneScroll from './motion-one-in-scroll';
 import MotionOneStagger from './motion-one-stagger';
-import Home from './home/home';
+import Home from './home';
 
 const routes = [
   {
