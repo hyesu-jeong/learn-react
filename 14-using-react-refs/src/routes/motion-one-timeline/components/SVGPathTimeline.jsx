@@ -1,17 +1,17 @@
 // --------------------------------------------------------------------------
 // ✅ SVG 패스 타임라인 애니메이션
 // --------------------------------------------------------------------------
-// - [ ] 스타일 모듈에서 stroke-dasharray, visibility 값 설정을 확인합니다.
+// - [ ] 스타일 모듈에서 stroke-dasharray, stroke-dashoffset, visibility 값 설정을 확인합니다.
 // - [ ] 사용자가 버튼을 클릭하면, SVG 패스 애니메이션이 표시되도록 설정합니다.
 //   - [ ] 타임라인 시퀀스(배열)를 설정합니다.
 //   - [ ] circle → path 순으로 움직이도록 설정합니다.
 //   - [ ] strokeDashoffset 속성에 키프레임을 사용하세요. (1 → 0)
 // --------------------------------------------------------------------------
 
-import { number } from 'prop-types';
-import S from './SVGPathTimeline.module.css';
-import { useRef } from 'react';
 import { timeline } from 'motion';
+import { number } from 'prop-types';
+import { useRef } from 'react';
+import S from './SVGPathTimeline.module.css';
 
 SVGPathTimeline.propTypes = {
   size: number,
@@ -22,37 +22,23 @@ function SVGPathTimeline({ size = 60 }) {
   const svgPathRef = useRef(null);
 
   const handleTimelineAnimate = () => {
-    const { current: circleElement } = svgCircleRef;
-    // const circleElement = svgCircleRef.current;
-    const { current: pathElement } = svgPathRef;
-    // const pathElement = svgPathRef.current;
+    const circleElement = svgCircleRef.current;
+    const pathElement = svgPathRef.current;
 
     const sequence = [
       [
         circleElement,
         { strokeDashoffset: [1, 0], visibility: 'visible' },
-        { duration: 0.8, easing: 'ease-in-out' },
+        { duration: 0.4, easing: 'ease-out' },
       ],
       [
         pathElement,
         { strokeDashoffset: [1, 0], visibility: 'visible' },
-        { duration: 0.6, easing: 'ease-in-out', at: '-0.2' },
+        { duration: 0.2, easing: 'ease-in-out', at: '+0.1' },
       ],
     ];
 
     timeline(sequence);
-
-    // animate(
-    //   circleElement,
-    //   { strokeDashoffset: [1, 0], visibility: 'visible' },
-    //   { duration: 0.8, easing: 'ease-in-out' }
-    // );
-
-    // animate(
-    //   pathElement,
-    //   { strokeDashoffset: [1, 0], visibility: 'visible' },
-    //   { duration: 0.6, easing: 'ease-in-out', delay: 0.6 }
-    // );
   };
 
   return (
