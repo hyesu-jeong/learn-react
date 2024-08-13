@@ -11,7 +11,7 @@
 import { number } from 'prop-types';
 import S from './SVGPathTimeline.module.css';
 import { useRef } from 'react';
-import { animate } from 'motion';
+import { timeline } from 'motion';
 
 SVGPathTimeline.propTypes = {
   size: number,
@@ -27,17 +27,32 @@ function SVGPathTimeline({ size = 60 }) {
     const { current: pathElement } = svgPathRef;
     // const pathElement = svgPathRef.current;
 
-    animate(
-      circleElement,
-      { strokeDashoffset: [1, 0], visibility: 'visible' },
-      { duration: 0.8, easing: 'ease-in-out' }
-    );
+    const sequence = [
+      [
+        circleElement,
+        { strokeDashoffset: [1, 0], visibility: 'visible' },
+        { duration: 0.8, easing: 'ease-in-out' },
+      ],
+      [
+        pathElement,
+        { strokeDashoffset: [1, 0], visibility: 'visible' },
+        { duration: 0.6, easing: 'ease-in-out', at: '-0.2' },
+      ],
+    ];
 
-    animate(
-      pathElement,
-      { strokeDashoffset: [1, 0], visibility: 'visible' },
-      { duration: 0.6, easing: 'ease-in-out', delay: 0.6 }
-    );
+    timeline(sequence);
+
+    // animate(
+    //   circleElement,
+    //   { strokeDashoffset: [1, 0], visibility: 'visible' },
+    //   { duration: 0.8, easing: 'ease-in-out' }
+    // );
+
+    // animate(
+    //   pathElement,
+    //   { strokeDashoffset: [1, 0], visibility: 'visible' },
+    //   { duration: 0.6, easing: 'ease-in-out', delay: 0.6 }
+    // );
   };
 
   return (
