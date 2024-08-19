@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import { exact, string } from 'prop-types';
 import { useEffect, useState } from 'react';
+import { exact, string } from 'prop-types';
 import S from './DataFetching.module.css';
 
 const ENDPOINT = '//yamoo9.pockethost.io/api/collections/olive_oil/records';
