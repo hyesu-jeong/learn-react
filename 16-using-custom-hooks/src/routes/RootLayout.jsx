@@ -1,13 +1,12 @@
+import { GlobalNav } from '@/components';
 import { Outlet } from 'react-router-dom';
-import GlobalNav from '../GlobalNav';
-import S from './style.module.css';
 
 function RootLayout() {
   return (
-    <div className={S.component}>
+    <main>
       <GlobalNav />
       <Outlet />
-    </div>
+    </main>
   );
 }
 
