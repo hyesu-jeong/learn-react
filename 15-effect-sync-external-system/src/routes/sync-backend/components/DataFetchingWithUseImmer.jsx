@@ -1,6 +1,6 @@
+import { exact, string } from 'prop-types';
 import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import { exact, string } from 'prop-types';
 import S from './DataFetching.module.css';
 
 const ENDPOINT = '//yamoo9.pockethost.io/api/collections/olive_oil/records';
@@ -19,7 +19,7 @@ function DataFetching() {
       draft.isLoading = true;
     });
 
-    const fetchOliveOil = async () => {
+    async function fetchOliveOil() {
       try {
         const response = await fetch(ENDPOINT, {
           signal: abortController.signal,
@@ -43,7 +43,7 @@ function DataFetching() {
           });
         }
       }
-    };
+    }
 
     fetchOliveOil();
 
