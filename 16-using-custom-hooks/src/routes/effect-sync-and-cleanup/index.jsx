@@ -1,10 +1,20 @@
 import useDocumentTitle from '@/hooks/useDocumentTitle';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavLink from './components/NavLink';
 import S from './style.module.css';
 
 function EffectSyncAndCleanup() {
   useDocumentTitle('이펙트 동기화 & 정리');
+
+  const [isClockOn, setIsClockOn] = useState(false);
+
+  const handleToggle = () => setIsClockOn((s) => !s);
+
+  const outletContextValue = {
+    isOn: isClockOn,
+    onToggle: handleToggle,
+  };
 
   return (
     <main id="page">
@@ -27,7 +37,7 @@ function EffectSyncAndCleanup() {
         <NavLink to="useless-checkbox">쓸모없는 체크박스</NavLink>
       </nav>
 
-      <Outlet />
+      <Outlet context={outletContextValue} />
     </main>
   );
 }

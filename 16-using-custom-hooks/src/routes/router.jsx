@@ -19,6 +19,7 @@ import SyncDocumentTitle from './sync-document-title';
 import SyncWebStorage from './sync-web-storage';
 
 // 페이지 내부 컴포넌트
+import ClockOnOff from './effect-sync-and-cleanup/components/ClockOnOff';
 import ClockOnOffWrapper from './effect-sync-and-cleanup/components/ClockOnOffWrapper';
 import PrintMousePosition from './effect-sync-and-cleanup/components/PrintMousePosition';
 import UselessCheckbox from './effect-sync-and-cleanup/components/UselessCheckbox';
@@ -66,7 +67,7 @@ const routes = createRoutesFromElements(
       {/* /effect-sync-and-cleanup  →  마우스 위치 추적 */}
       <Route index element={<PrintMousePosition />} />
       {/* /effect-sync-and-cleanup/clock  →  시계 ON/OFF */}
-      <Route path="clock" element={<ClockOnOffWrapper />} />
+      <Route path="clock" element={<ClockOnOff />} />
       {/* /effect-sync-and-cleanup/useless-checkbox  →  쓸모없는 체크박스 */}
       <Route path="useless-checkbox" element={<UselessCheckbox />} />
     </Route>
