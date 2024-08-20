@@ -1,7 +1,7 @@
-import useClock from '@/hooks/useClock';
-import useDocumentTitle from '@/hooks/useDocumentTitle';
 import { bool, func } from 'prop-types';
 import S from './ClockOnOff.module.css';
+import useDocumentTitle from '@/hooks/useDocumentTitle';
+import useClock from '@/hooks/useClock';
 
 ClockOnOff.propTypes = {
   isOn: bool,

@@ -1,6 +1,6 @@
 import useDocumentTitle from '@/hooks/useDocumentTitle';
-import useMousePosition from '@/hooks/useMousePosition';
 import S from './PrintMousePosition.module.css';
+import useMousePosition from '@/hooks/useMousePosition';
 
 function PrintMousePosition() {
   useDocumentTitle('마우스 위치 추적 ← 이펙트 동기화 & 정리');

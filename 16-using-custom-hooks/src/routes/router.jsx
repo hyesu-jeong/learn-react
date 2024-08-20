@@ -9,6 +9,9 @@ import RootLayout from '@/components/RootLayout';
 // 페이지
 import CheckOnOffline from './check-on-offline';
 import EffectSyncAndCleanup from './effect-sync-and-cleanup';
+import ClockOnOff from './effect-sync-and-cleanup/components/ClockOnOff';
+import PrintMousePosition from './effect-sync-and-cleanup/components/PrintMousePosition';
+import UselessCheckbox from './effect-sync-and-cleanup/components/UselessCheckbox';
 import ScrollTriggerEffect from './scroll-trigger-effect';
 import SyncBackend from './sync-backend';
 import SyncDocumentTitle from './sync-document-title';
@@ -22,7 +25,15 @@ const routes = [
     children: [
       { index: true, element: <SyncDocumentTitle /> },
       { path: 'sync-web-storage', element: <SyncWebStorage /> },
-      { path: 'effect-sync-and-cleanup', element: <EffectSyncAndCleanup /> },
+      {
+        path: 'effect-sync-and-cleanup',
+        element: <EffectSyncAndCleanup />,
+        children: [
+          { index: true, element: <PrintMousePosition /> }, // 기본 경로
+          { path: 'clock', element: <ClockOnOff /> },
+          { path: 'useless-checkbox', element: <UselessCheckbox /> },
+        ],
+      },
       { path: 'scroll-trigger-effect', element: <ScrollTriggerEffect /> },
       { path: 'sync-backend', element: <SyncBackend /> },
       { path: 'check-on-offline', element: <CheckOnOffline /> },
