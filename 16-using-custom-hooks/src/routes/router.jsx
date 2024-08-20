@@ -19,6 +19,7 @@ import SyncDocumentTitle from './sync-document-title';
 import SyncWebStorage from './sync-web-storage';
 
 // 페이지 내부 컴포넌트
+import DataFetchUsingUseFetchHook from './data-fetch-using-use-fetch-hook';
 import ClockOnOff from './effect-sync-and-cleanup/components/ClockOnOff';
 import ClockOnOffWrapper from './effect-sync-and-cleanup/components/ClockOnOffWrapper';
 import PrintMousePosition from './effect-sync-and-cleanup/components/PrintMousePosition';
@@ -74,6 +75,7 @@ const routes = createRoutesFromElements(
     <Route path="scroll-trigger-effect" element={<ScrollTriggerEffect />} />
     <Route path="sync-backend" element={<SyncBackend />} />
     <Route path="check-on-offline" element={<CheckOnOffline />} />
+    <Route path="data-fetching" element={<DataFetchUsingUseFetchHook />} />
   </Route>
 );
 
