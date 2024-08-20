@@ -1,5 +1,4 @@
 // React Router 라이브러리를 사용한 싱글 페이지 앱 제작
-// 실습 진행 (30분까지 진행)
 
 import {
   createBrowserRouter,
@@ -19,6 +18,7 @@ import SyncDocumentTitle from './sync-document-title';
 import SyncWebStorage from './sync-web-storage';
 
 // 페이지 내부 컴포넌트
+import CounterApp from './counter-app-use-counter';
 import DataFetchUsingUseFetchHook from './data-fetch-using-use-fetch-hook';
 import ClockOnOff from './effect-sync-and-cleanup/components/ClockOnOff';
 import ClockOnOffWrapper from './effect-sync-and-cleanup/components/ClockOnOffWrapper';
@@ -76,6 +76,7 @@ const routes = createRoutesFromElements(
     <Route path="sync-backend" element={<SyncBackend />} />
     <Route path="check-on-offline" element={<CheckOnOffline />} />
     <Route path="data-fetching" element={<DataFetchUsingUseFetchHook />} />
+    <Route path="counter-app" element={<CounterApp />} />
   </Route>
 );
 
