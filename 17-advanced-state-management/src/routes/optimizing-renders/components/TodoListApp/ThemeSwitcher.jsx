@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { useId } from 'react';
 import { func, string } from 'prop-types';
-import { visibilityType } from './@types';
+import { memo, useId } from 'react';
 import { visibilities } from './@constants';
+import { visibilityType } from './@types';
 import S from './style.module.css';
 
 ThemeSwitcher.propTypes = {
@@ -78,4 +78,4 @@ function ThemeSwitcher({
   );
 }
 
-export default ThemeSwitcher;
+export default memo(ThemeSwitcher);

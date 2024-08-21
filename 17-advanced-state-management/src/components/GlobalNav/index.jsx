@@ -1,5 +1,5 @@
 import { navigationItems } from '@/router';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import S from './style.module.css';
 
@@ -29,4 +29,4 @@ function GlobalNav() {
   );
 }
 
-export default GlobalNav;
+export default memo(GlobalNav);
