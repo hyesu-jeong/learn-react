@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { IoLogoReact } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import S from './style.module.css';
 
 function AppHeader() {
@@ -7,7 +7,7 @@ function AppHeader() {
 
   return (
     <header className={S.component}>
-      <Link to="/" className={S.homeLink}>
+      <Link to="/" className={S.homeLink} aria-label="홈">
         <IoLogoReact />
       </Link>
       {authUser && (
