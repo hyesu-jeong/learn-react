@@ -1,17 +1,17 @@
-import useDocumentTitle from '@/hooks/useDocumentTitle';
-import S from './style.module.css';
 import { AppSwitch } from '@/components';
+import useDocumentTitle from '@/hooks/useDocumentTitle';
 import useToggle from '@/hooks/useToggle';
 import GrandParent from './components/GrandParent';
-import { semantics } from './theme';
+import S from './style.module.css';
+import { primitives, semantics } from './theme';
 
 function SwitchTheme() {
   useDocumentTitle('테마 스위치');
 
-  const [isDarkMode, setIsDarkMode] = useToggle(!true);
+  const [isDarkMode, setIsDarkMode] = useToggle(false);
 
   const theme = isDarkMode ? semantics.dark : semantics.light;
-  console.log(theme);
+  console.log(primitives, theme);
 
   return (
     <main id="page" className={S.component}>

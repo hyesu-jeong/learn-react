@@ -1,27 +1,27 @@
+import { useTheme } from '@/app/contexts/theme';
 import { useLayoutEffect, useState } from 'react';
-import { object } from 'prop-types';
-import S from './style.module.css';
-import ThemeSwitcher from './ThemeSwitcher';
-import TodoList from './TodoList';
-import AddTodo from './AddTodo';
 import {
   getFiltered,
   getUpdated,
   initialTodos,
   VISIBILITIES,
 } from './@constants';
+import AddTodo from './AddTodo';
+import S from './style.module.css';
+import ThemeSwitcher from './ThemeSwitcher';
+import TodoList from './TodoList';
 
-TodoListApp.propTypes = {
-  theme: object,
-};
-
-function TodoListApp({ theme }) {
+function TodoListApp() {
   const [todos, setTodos] = useState(initialTodos);
   const [visibility, setVisibility] = useState(VISIBILITIES.ALL);
 
   const [themeColor, setThemeColor] = useState('#562ec6');
 
   const [focusColor, setFocusColor] = useState('#fddf37');
+
+  const { semantics } = useTheme();
+
+  const theme = semantics.dark;
 
   useLayoutEffect(() => {
     if ('TodoListApp' in theme) {
