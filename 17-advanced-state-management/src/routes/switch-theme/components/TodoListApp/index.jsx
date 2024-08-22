@@ -1,4 +1,4 @@
-import { object } from 'prop-types';
+import { useTheme } from '@/contexts/theme';
 import { useLayoutEffect, useState } from 'react';
 import {
   getFiltered,
@@ -11,12 +11,11 @@ import S from './style.module.css';
 import ThemeSwitcher from './ThemeSwitcher';
 import TodoList from './TodoList';
 
-TodoListApp.propTypes = {
-  theme: object,
-};
+function TodoListApp() {
+  const { theme } = useTheme();
 
-function TodoListApp({ theme }) {
   const [todos, setTodos] = useState(initialTodos);
+
   const [visibility, setVisibility] = useState(VISIBILITIES.ALL);
 
   const [themeColor, setThemeColor] = useState('#562ec6');
