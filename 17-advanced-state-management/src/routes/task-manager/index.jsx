@@ -2,6 +2,7 @@ import { AppDivider, AppLink } from '@/components';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
 import guideImage from './assets/task-manager-guide.png';
 import AuthStatus from './components/AuthStatus';
+import ListManager from './components/ListManager';
 import TaskManager from './components/TaskManager';
 import S from './style.module.css';
 
@@ -11,6 +12,10 @@ function TaskManagerUsingReducer() {
   return (
     <main id="page" className={S.component}>
       <h1 className="headline">태스크 매니저 (리듀서 활용)</h1>
+
+      <ListManager />
+
+      <AppDivider />
 
       <AuthStatus />
 
