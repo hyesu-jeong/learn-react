@@ -2,6 +2,7 @@ import { userSignIn } from '@/api/user';
 import { AppButton, AppForm, AppInput } from '@/components';
 import { useAuth } from '@/contexts/auth';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
+import { setStorageData } from '@/utils';
 import { VscVscodeInsiders } from 'react-icons/vsc';
 import { Link, useNavigate } from 'react-router-dom';
 import { useImmer } from 'use-immer';
@@ -24,10 +25,17 @@ function SignInUser() {
 
       const authData = await userSignIn(email, password);
 
-      // 요청에 따른 응답이 주어졌으니까
+      // 요청에 따른 응답 검토
       const { record: user, token } = authData;
-      // 인증 컨텍스트에 사용자 정보를 저장
-      setAuth({ user, token });
+      const authInfo = { user, token };
+
+      // 인증 컨텍스트에 사용자 정보 저장
+      setAuth(authInfo);
+
+      // 로컬 스토리지에 사용자 정보 저장
+      setStorageData('@auth', authInfo);
+
+      // 홈페이지로 이동
       navigate('/');
     } catch (error) {
       console.error(error);
