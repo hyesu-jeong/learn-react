@@ -1,13 +1,17 @@
 import { userSignIn } from '@/api/user';
 import { AppButton, AppForm, AppInput } from '@/components';
+import { useAuth } from '@/contexts/auth';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
 import { VscVscodeInsiders } from 'react-icons/vsc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useImmer } from 'use-immer';
 import S from './style.module.css';
 
 function SignInUser() {
   useDocumentTitle('사용자 로그인');
+
+  const navigate = useNavigate();
+  const { setAuth } = useAuth();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -20,8 +24,11 @@ function SignInUser() {
 
       const authData = await userSignIn(email, password);
 
-      // 요청에 따른 응답이 주어졌으니까 인증 컨텍스트에 사용자 정보를 저장
-      console.log(authData);
+      // 요청에 따른 응답이 주어졌으니까
+      const { record: user, token } = authData;
+      // 인증 컨텍스트에 사용자 정보를 저장
+      setAuth({ user, token });
+      navigate('/');
     } catch (error) {
       console.error(error);
     }
