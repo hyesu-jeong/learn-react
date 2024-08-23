@@ -1,6 +1,6 @@
 import { userSignIn } from '@/api/user';
 import { AppButton, AppForm, AppInput } from '@/components';
-import { useAuth } from '@/contexts/auth';
+import { AUTH_KEY, useAuth } from '@/contexts/auth';
 import useDocumentTitle from '@/hooks/useDocumentTitle';
 import { setStorageData } from '@/utils';
 import { VscVscodeInsiders } from 'react-icons/vsc';
@@ -33,7 +33,7 @@ function SignInUser() {
       setAuth(authInfo);
 
       // 로컬 스토리지에 사용자 정보 저장
-      setStorageData('@auth', authInfo);
+      setStorageData(AUTH_KEY, authInfo);
 
       // 홈페이지로 이동
       navigate('/');
